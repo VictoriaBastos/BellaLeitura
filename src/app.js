@@ -1,3 +1,6 @@
+const doacaoRouter = require('./routes/doacaoRoutes');
+const hospedagemRouter = require('./routes/hospedagemRoutes');
+
 require('dotenv-safe').config();
 const db = require('./database/MongoConfig');
 
@@ -8,6 +11,8 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(express.json());
+app.use('/doacao', doacaoRouter);
+app.use('/doacao', hospedagemRouter)
 
 db.connect();
 

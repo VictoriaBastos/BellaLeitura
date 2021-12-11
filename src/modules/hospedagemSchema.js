@@ -8,4 +8,4 @@ const hospedagemSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('parceiros', hospedagemSchema)
+module.exports = mongoose.model('hospedagem', hospedagemSchema)
