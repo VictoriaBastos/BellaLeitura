@@ -16,8 +16,8 @@ const create = async (req,res) => {
             nome:req.body.nome
         })
 
-        const doacao = await novaHospedagem.save();
-        res.status(200).send(doacao)
+        const hospedagem = await novaHospedagem.save();
+        res.status(200).send(hospedagem)
     } catch (error) {
         res.status(500).send(error.message);
     }

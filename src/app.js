@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use('/doacao', doacaoRouter);
-app.use('/doacao', hospedagemRouter)
+app.use('/hospedagem', hospedagemRouter)
 
 db.connect();
 
