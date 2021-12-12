@@ -5,15 +5,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const authConfig = require('../helper/auth.json')
 
-// function generateToken(params ={}){
-//     return jwt.sign(params, authConfig.secret, {
-//         expiresIn: 86400
-//     }); 
-// }
+function generateToken(params ={}){
+    return jwt.sign(params, authConfig.secret, {
+        expiresIn: 86400
+    }); 
+}
 
 const registra = async (req, res) => {
     try{
-        const {nome, email, password} = req.body;
+        const {nome, email,password} = req.body;
 
         if(!nome){
             return res.status(422).json({"ERRO:" : "Campo nome é obrigatório"})
@@ -37,7 +37,7 @@ const registra = async (req, res) => {
         const user = new UserSchema({ 
             nome,
             email, 
-            passwordHash
+            password: passwordHash
         })
         
         await user.save();
@@ -51,7 +51,7 @@ const registra = async (req, res) => {
 }
 
 const autentica = async (req,res) => {
-    const {email, password} = req.body;
+    const {email,password} = req.body;
 
     if(!email){
         return res.status(422).json({"ERRO:" : "Campo email é obrigatório"})
@@ -82,16 +82,12 @@ const autentica = async (req,res) => {
             id:user._id,
             },
             secret)
-        res.status(200).send("msg: Autenticação realizada com sucesso ", token)
+        res.status(200).json({msg:"Autenticação realizada com sucesso ", token})
 
     }catch(error){
         console.log(error)
         res.status(400).send("ERRO: Cadastro não autorizado");
     }
-
-    // user.password = undefined;
-
-    // res.status(200).send({user, token: generateToken({id:user.id})});
 }
 
 
