@@ -3,7 +3,6 @@ const UserSchema = require('../modules/userSchema');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const authConfig = require('../helper/auth.json')
 
 function generateToken(params ={}){
     return jwt.sign(params, authConfig.secret, {

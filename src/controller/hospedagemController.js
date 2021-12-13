@@ -13,7 +13,7 @@ const getAll = async (req,res) => {
 
 const create = async (req,res) => {
     try {
-        const novaHospedagem = new DoacaoSchema({
+        const novaHospedagem = new HospedagemSchema({
             nome:req.body.nome
         })
 
