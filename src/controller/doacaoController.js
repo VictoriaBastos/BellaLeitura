@@ -1,4 +1,4 @@
-const  DoacaoSchema = require('../modules/doacaoSchema')
+const  DoacaoSchema = require('../models/doacaoSchema')
 const mongoose = require('mongoose')
 
 const getAll = async (req,res) => {
