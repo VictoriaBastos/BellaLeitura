@@ -1,8 +1,8 @@
-const UserSchema = require('../modules/userSchema');
+require("dotenv").config(); //tirar
+const UserSchema = require('../models/userSchema');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const authConfig = require('../helper/auth.json')
 
 function generateToken(params ={}){
     return jwt.sign(params, authConfig.secret, {
@@ -12,40 +12,81 @@ function generateToken(params ={}){
 
 const registra = async (req, res) => {
     try{
-        const {email} = req.body;
-        if(await UserSchema.findOne({email:email})){
-            return res.status(400).send("ERRO: email previamente cadastrado");
+        const {nome, email,password} = req.body;
+
+        if(!nome){
+            return res.status(422).json({"ERRO:" : "Campo nome é obrigatório"})
         }
+        if(!email){
+            return res.status(422).json({"ERRO:" : "Campo email é obrigatório"})
+        }
+        if(!password){
+            return res.status(422).json({"ERRO:" : "Campo password é obrigatório"})
+        }
+        
+        const userExistente = await UserSchema.findOne({ email: email})
 
-        const novoUser = new UserSchema({
-            nome:req.body.nome,
-            email:req.body.email,
-            password:req.body.password
+        if(userExistente){
+            return res.status(422).json({"ERRO:" : "Email já cadastrado"})
+        }
+    
+        const salt = await bcrypt.genSalt(12);
+        const passwordHash = await bcrypt.hash(password, salt);
+
+        const user = new UserSchema({ 
+            nome,
+            email, 
+            password: passwordHash
         })
-        const user = await novoUser.save();
+        
+        await user.save();
 
-        user.password = undefined;
-
-        res.status(200).send({user, token: generateToken({id:user.id})});
-    }catch(err){
+        res.status(201).json({"msg:" : "Usuário cadastrado com sucesso"})
+        
+    }catch(error){
+        console.log(error)
         res.status(400).send("ERRO: Cadastro não autorizado");
     }
 }
 
 const autentica = async (req,res) => {
     const {email,password} = req.body;
-    const user = await UserSchema.findOne({email: email}).select('+password');
+
+    if(!email){
+        return res.status(422).json({"ERRO:" : "Campo email é obrigatório"})
+    }
+    if(!password){
+        return res.status(422).json({"ERRO:" : "Campo password é obrigatório"})
+    }
+
+    const user = await UserSchema.findOne({ email: email})
 
     if(!user){
-        return res.status(400).send("ERRO: Colaborador não encontrado")
-    }
-    if(!await bcrypt.compare(password, user.password)){
-        return res.status(400).send("ERRO: Senha incorreta")
+        return res.status(404).send("ERRO: Usuário não encontrado")
     }
 
-    user.password = undefined;
+    const checkPassword = await bcrypt.compare(password, user.password);
 
-    res.status(200).send({user, token: generateToken({id:user.id})});
+    if(!checkPassword){
+        console.log(password)
+        console.log(user.password)
+        return res.status(422).send("ERRO: Senha Incorreta")
+    }
+
+    try{
+        const secret = process.env.SECRET;
+        
+        const token = jwt.sign(
+            {
+            id:user._id,
+            },
+            secret)
+        res.status(200).json({msg:"Autenticação realizada com sucesso ", token})
+
+    }catch(error){
+        console.log(error)
+        res.status(400).send("ERRO: Cadastro não autorizado");
+    }
 }
 
 

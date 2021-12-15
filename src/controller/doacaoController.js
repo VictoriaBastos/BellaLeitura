@@ -1,4 +1,4 @@
-const  DoacaoSchema = require('../modules/doacaoSchema')
+const  DoacaoSchema = require('../models/doacaoSchema')
 const mongoose = require('mongoose')
 
 const getAll = async (req,res) => {
@@ -22,8 +22,6 @@ const create = async (req,res) => {
         res.status(500).send(error.message);
     }
 }
-
-
 
 module.exports = {
     getAll, 

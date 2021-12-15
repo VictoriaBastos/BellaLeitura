@@ -1,10 +1,10 @@
-const  HospedagemSchema = require('../models/hospedagemSchema')
+const  LivroSchema = require('../models/livroSchema')
 const mongoose = require('mongoose')
 
 
 const getAll = async (req,res) => {
     try {
-        const hospedagem = await HospedagemSchema.find();
+        const livro = await LivroSchema.find();
         res.status(200).send(hospedagem);
     } catch (error) {
         res.status(500).send(error.message);
@@ -13,12 +13,12 @@ const getAll = async (req,res) => {
 
 const create = async (req,res) => {
     try {
-        const novaHospedagem = new HospedagemSchema({
+        const novoLivro = new LivroSchema({
             nome:req.body.nome
         })
 
-        const hospedagem = await novaHospedagem.save();
-        res.status(200).send(hospedagem)
+        const livro = await novoLivro.save();
+        res.status(200).send(livro)
     } catch (error) {
         res.status(500).send(error.message);
     }
