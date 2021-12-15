@@ -2,10 +2,46 @@ const mongoose = require('mongoose');
 
 const hospedagemSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
-    nome:{
+    estabelecimento:{
         type: String,
         required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    telefone:{
+        type: String,
+        required: true
+    },
+    cnpj:{
+        type: String,
+        required: true
+    },
+    endereco:{
+        type: String,
+        required: true
+    },
+    bairro:{
+        type: String,
+        required: true
+    },
+    cidade:{
+        type: String,
+        required: true
+    },
+    estado:{
+        type: String,
+        required: true
+    },
+    termoDeCompromisso:{
+        type: Boolean,
+        required: true
+    },
+    createdAt:{
+        type: Date,
+        default: new Date()
     }
 })
 
-module.exports = mongoose.model('hospedagem', hospedagemSchema)
+module.exports = mongoose.model('hospedagens', hospedagemSchema)

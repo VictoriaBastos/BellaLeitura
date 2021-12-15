@@ -2,9 +2,29 @@ const mongoose = require('mongoose');
 
 const doacaoSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
-    nome:{
+    colaborador:{
         type: String,
         required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    telefone:{
+        type: String,
+        required: true
+    },
+    cnpj:{
+        type: String,
+        required: true
+    },
+    termoDeCompromisso:{
+        type: String,
+        required: true
+    },
+    createdAt:{
+        type: Date,
+        default: new Date()
     }
 })
 
