@@ -44,7 +44,6 @@ const registra = async (req, res) => {
         res.status(201).json({"msg:" : "Usuário cadastrado com sucesso"})
         
     }catch(error){
-        console.log(error)
         res.status(400).send("ERRO: Cadastro não autorizado");
     }
 }
