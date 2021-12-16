@@ -5,7 +5,7 @@
     <p align="center">Compartilhamento de Livros Infantis<p>
 </h2>
 <p align="center">
-<img src="./assets/bella_leitura_bg.jpg" width="80%" height="50%"/>
+<img src="./assets/bellaLeitura.jpg" width="80%" height="50%"/>
 </p>
 <br>
 
