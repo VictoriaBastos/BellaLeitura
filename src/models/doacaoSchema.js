@@ -19,7 +19,7 @@ const doacaoSchema = new mongoose.Schema({
         required: true
     },
     termoDeCompromisso:{
-        type: String,
+        type: Boolean,
         required: true
     },
     createdAt:{

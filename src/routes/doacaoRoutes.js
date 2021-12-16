@@ -10,12 +10,9 @@ const router = express.Router()
 router.get('/', doacaoController.getAll)
 
 //Private Routes
-router.post('/:', doacaoController.create)
-router.put('/:id', doacaoController.update)
-router.delete('/:id', doacaoController.delete)
-
-//router.post('/', checkToken,  doacaoController.create)
-//router.put('/:id', checkToken, doacaoController.update)
-//router.delete('/:id', checkToken,  doacaoController.delete)
+router.post('/nova-doacao', checkToken,  doacaoController.create)
+router.put('/:id', checkToken, doacaoController.update)
+router.delete('/:id', checkToken,  doacaoController.remove)
 
 module.exports = router;
+

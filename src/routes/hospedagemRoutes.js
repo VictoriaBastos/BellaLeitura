@@ -17,8 +17,8 @@ router.get('/', hospedagemController.getByState)
 //router.delete('/id', hospedagemController.delete)
 
 //Private Routes
-router.post('/', checkToken,  hospedagemController.create)
+router.post('/novo-posto', checkToken,  hospedagemController.create)
 router.put('/:id', checkToken, hospedagemController.update)
-router.delete('/:id', checkToken,  hospedagemController.delete)
+router.delete('/:id', checkToken,  hospedagemController.remove)
 
 module.exports = router;

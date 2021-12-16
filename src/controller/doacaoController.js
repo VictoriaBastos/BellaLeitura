@@ -46,9 +46,9 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
     try {
-        let doacao = await doacaoSchema.findById(req.params.id)
+        let doacao = await DoacaoSchema.findById(req.params.id)
         doacao.delete()
-        res.status(200).send(doacao)
+        res.status(200).json({"message":"Colaborador removido: ", doacao})
     } catch (error) {
         res.status(500).send(error.message)
     }
