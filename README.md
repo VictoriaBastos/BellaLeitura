@@ -184,17 +184,131 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 <br>
 
 
-## 🚧 Propostas Futuras
+## ✅ Dados para Collection Hospedagem
+
+- id: autogerado e obrigatório
+- nome: texto e obrigatório 
+- telefone: texto e obrigatório
+- cnpj: texto e obrigatório 
+- endereco: texto e obrigatório  
+- bairro: texto e obrigatório 
+- cidade: texto e obrigatório 
+- estado: texto e obrigatório 
+- termoDeCompromisso: boolean e obrigatório 
+- criadoEm: data gerada automaticamente
+
+<br>
+
+## ✅ API deve retornar seguinte JSON:
+
+```jsx
+
+{
+    "message": "Posto de compartilhamento cadastrado com sucesso",
+    "hospedagem": {
+        "nome": "Acai Tropical Berry ",
+        "email": "acaitropical@tropicalberry.com",
+        "telefone": "(34) 2477-0512",
+        "cnpj": "18.976.496/0001-07",
+        "endereco": "Av Perreira Correia , 1272",
+        "bairro": "Centro",
+        "cidade": "Uberaba",
+        "estado": "Minas Gerais",
+        "termoDeCompromisso": true,
+        "createdAt": "2021-12-16T15:09:59.522Z",
+        "_id": "61bb570b9c45654e143eb22a",
+        "__v": 0
+    }
+}
+
+```
+ <br>
+
+  ## ✅ Dados para Collection Doacao
+
+- id: autogerado e obrigatório
+- nome: texto e obrigatório 
+- email: texto e obrigatório
+- telefone: texto e obrigatório
+- cnpj: texto e obrigatório  
+- termoDeCompromisso: boolean e obrigatório 
+- criadoEm: data gerada automaticamente
+
+<br>
+
+## ✅ API deve retornar seguinte JSON:
+```jsx
+{
+    "message": "Doador cadastrado com sucesso",
+    "doacao": {
+        "nome": "Livrooks",
+        "email": "livrooks@livrooks.com",
+        "telefone": "(11) 2017-0763",
+        "cnpj": "70.165.190/0001-82",
+        "termoDeCompromisso": true,
+        "createdAt": "2021-12-16T15:15:05.260Z",
+        "_id": "61bb5868703291a368ea6dc6",
+        "__v": 0
+    }
+}
+
+```
+
+## ✅ Dados para Collection Livros
+
+- id: autogerado e obrigatório
+- titulo: texto e obrigatório
+- texto: texto e obrigatório
+- ilustracao: texto e obrigatório
+- tradutores: texto e não-obrigatório
+- editora: texto e obrigatório
+- idades: texto e obrigatório
+- ano: número e obrigatório
+- pais: texto e obrigatório
+- paginas: número e obrigatório
+- idDoador: texto e obrigatório
+- createdAt: data gerada automaticamente
 
 <br>
 
 
-* Desenvolvimento front-end da aplicação.
-* Busca dos postos de compartilhamento por proximidade.
-* Mecanismo de postagem de fotos e comentários dos usuários dos postos.
+## ✅ API deve retornar seguinte JSON:
+
+```jsx
+{
+    "message": "Livro cadastrado com sucesso",
+    "livro": {
+        "titulo": "AMORAS",
+        "texto": "Emicida",
+        "ilustracao": "Aldo Fabrini",
+        "editora": "Companhia das Letrinhas",
+        "idades": "3-5, 6-8",
+        "ano": 2018,
+        "pais": "Brasil",
+        "paginas": 44,
+        "idDoador": "61bab7e0ff367e6c9d6fcd84",
+        "createdAt": "2021-12-16T15:24:34.719Z",
+        "_id": "61bb5add1698486c3a191473",
+        "__v": 0
+    }
+}
+
+```
+
+<br>
+
+## 🚧 Implementações Futuras
+
+<br>
+
+
+* Desenvolvimento Front-end da aplicação.
+* Mecanismo de busca dos postos por proximidade.
+* Gerenciamento de autorização do sistema.
 
 
 <br>
+
 
 ## 👨‍💻 Autora
 
