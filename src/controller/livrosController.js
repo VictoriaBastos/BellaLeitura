@@ -21,11 +21,12 @@ const create = async (req,res) => {
             idades:req.body.idades,
             ano:req.body.ano,
             pais:req.body.pais,
-            paginas:req.body.paginas
+            paginas:req.body.paginas,
+            idDoador:req.body.idDoador
         })
 
         const livro = await novoLivro.save();
-        res.status(200).send(livro)
+        res.status(200).json({"message": "Livro cadastrado com sucesso", livro})
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -44,6 +45,7 @@ const update = async (req, res) => {
             livro.ano = req.body.ano || livro.ano
             livro.pais = req.body.pais || livro.pais 
             livro.paginas = req.body.paginas || livro.paginas 
+            livro.idDoador = req.body.idDoador || livro.idDoador
         await livro.save()
         res.status(200).send(livro)
         }else{

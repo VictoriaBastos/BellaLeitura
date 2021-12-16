@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const hospedagemSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
-    postoDeHospedagem:{
+    nome:{
         type: String,
         required: true
     },

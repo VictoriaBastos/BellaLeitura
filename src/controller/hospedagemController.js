@@ -13,7 +13,7 @@ const getAll = async (req,res) => {
 const create = async (req,res) => {
     try {
         const novaHospedagem = new HospedagemSchema({
-            postoDeHospedagem:req.body.postoDeHospedagem,
+            nome:req.body.nome,
             email:req.body.email,
             telefone:req.body.telefone,
             cnpj:req.body.cnpj,
@@ -25,7 +25,7 @@ const create = async (req,res) => {
         })
 
         const hospedagem = await novaHospedagem.save();
-        res.status(200).send(hospedagem)
+        res.status(200).json({"message": "Posto de compartilhamento cadastrado com sucesso", hospedagem})
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -36,7 +36,7 @@ const update = async (req, res) => {
             let hospedagem = await HospedagemSchema.findById(req.params.id)
         
             if(hospedagem){
-                hospedagem.postoDeHospedagem = req.body.postoDeHospedagem || hospedagem.postoDeHospedagem
+                hospedagem.postoDeHospedagem = req.body.nome || hospedagem.nome
                 hospedagem.email = req.body.email || hospedagem.email
                 hospedagem.telefone = req.body.telefone || hospedagem.telefone
                 hospedagem.cnpj = req.body.cnpj || hospedagem.cnpj

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const doacaoSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
-    colaborador:{
+    nome:{
         type: String,
         required: true
     },

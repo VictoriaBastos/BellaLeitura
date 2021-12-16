@@ -189,8 +189,9 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 <br>
 
 
-*  Desenvolvimento front-end da aplicação.
-* Mecanismo de busca dos postos de compartilhamento por proximidade.
+* Desenvolvimento front-end da aplicação.
+* Busca dos postos de compartilhamento por proximidade.
+* Mecanismo de postagem de fotos e comentários dos usuários dos postos.
 
 
 <br>

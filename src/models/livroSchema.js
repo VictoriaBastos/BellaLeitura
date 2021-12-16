@@ -38,6 +38,10 @@ const livroSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    idDoador:{
+        type: String,
+        required: true
+    },
     createdAt:{
         type: Date,
         default: new Date()
