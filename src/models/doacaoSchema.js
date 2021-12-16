@@ -28,4 +28,4 @@ const doacaoSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('parceiros', doacaoSchema)
+module.exports = mongoose.model('parceirosDoacao', doacaoSchema)
