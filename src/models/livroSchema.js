@@ -6,11 +6,31 @@ const livroSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    autor:{
+    texto:{
         type: String,
         required: true
     },
-    genero:{
+    ilustracao:{
+        type: String,
+        required: true
+    },
+    tradutores:{
+        type: String,
+        required: false
+    },
+    editora:{
+        type: String,
+        required: true
+    },
+    idades:{
+        type: String,
+        required: true
+    },
+    ano:{
+        type: String,
+        required: true
+    },
+    pais:{
         type: String,
         required: true
     },
