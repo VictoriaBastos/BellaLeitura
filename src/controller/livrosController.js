@@ -13,7 +13,11 @@ const getAll = async (req,res) => {
 const create = async (req,res) => {
     try {
         const novoLivro = new LivroSchema({
-            nome:req.body.nome
+            titulo:req.body.titulo,
+            autor:req.body.autor,
+            genero:req.body.genero,
+            paginas:req.body.paginas
+            
         })
 
         const livro = await novoLivro.save();
@@ -45,7 +49,7 @@ try {
     let livro = await LivroSchema.findById(req.params.id)
     livro.delete()
 
-    res.status(200).send(livro)
+    res.status(200).json({"message":"Livro removido: ", livro})
 } catch (error) {
     res.status(500).send(error.message)
 }

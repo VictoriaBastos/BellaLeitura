@@ -16,5 +16,3 @@ router.put('/:id', checkToken, livrosController.update)
 router.delete('/:id', checkToken,  livrosController.remove)
 
 module.exports = router;
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYmE4ZjA1Zjk2NDdhMjdkM2ZjMGU0NCIsImlhdCI6MTYzOTYxNjI4Nn0.4oRre22XPhCNtMlmHiW7jcBddjhmCB-95GRLhoB2PPY
