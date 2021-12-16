@@ -6,20 +6,13 @@ const express = require("express")
 const authMiddleware = require('../middleware/auth')
 const router = express.Router()
 
-
-//rotas privadas 
-router.post('/', checkToken, doacaoController.create)
-//router.put('/', checkToken, doacaoController.update)
-//router.delete('/', checkToken, doacaoController.delete)
-
-//rotas publicas 
-
+//Public Routes
 router.get('/', doacaoController.getAll)
 
 //Private Routes
-//router.post('/:', doacaoController.create)
-//router.put('/:id', doacaoController.update)
-//router.delete('/:id', doacaoController.delete)
+router.post('/:', doacaoController.create)
+router.put('/:id', doacaoController.update)
+router.delete('/:id', doacaoController.delete)
 
 //router.post('/', checkToken,  doacaoController.create)
 //router.put('/:id', checkToken, doacaoController.update)
