@@ -1,7 +1,6 @@
 const HospedagemSchema = require('../models/hospedagemSchema')
 const mongoose = require('mongoose')
 
-
 const getAll = async (req,res) => {
     try {
         const hospedagem = await HospedagemSchema.find();
