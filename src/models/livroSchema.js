@@ -27,7 +27,7 @@ const livroSchema = new mongoose.Schema({
         required: true
     },
     ano:{
-        type: String,
+        type: Number,
         required: true
     },
     pais:{
@@ -35,7 +35,7 @@ const livroSchema = new mongoose.Schema({
         required: true
     },
     paginas:{
-        type: String,
+        type: Number,
         required: true
     },
     createdAt:{
