@@ -25,7 +25,7 @@ const update = async (req, res) => {
             let hospedagem = await HospedagemSchema.findById(req.params.id)
         
             if(hospedagem){
-                hospedagem.postoDeHospedagem = req.body.nome || hospedagem.nome
+                hospedagem.nome = req.body.nome || hospedagem.nome
                 hospedagem.email = req.body.email || hospedagem.email
                 hospedagem.telefone = req.body.telefone || hospedagem.telefone
                 hospedagem.cnpj = req.body.cnpj || hospedagem.cnpj
