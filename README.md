@@ -130,11 +130,20 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 
 <br>
 
+## 🔃 Rotas de Login:
+
+| Método HTTP  | Endpoint                | Descrição                            |
+| ------------ | ----------------------- | ------------------------------------ |
+| POST          | `/postos/novo-posto`          | Cadastra posto de compartilhamento       |
+| POST        | `/login/novo-doador`          | Cadastra colaboradores para doação de livros          |
+| POST        | `/login/autentica`          | Autentica usuário          |
+
+<br>
+
 ## 🔃 Rotas de Hospedagem:
 
 | Método HTTP  | Endpoint                | Descrição                            |
 | ------------ | ----------------------- | ------------------------------------ |
-| POST         | `/postos/novo-posto`    | Cadastro de posto de compartilhamento          |
 | PUT          | `/postos/:id`          | Atualiza de posto de compartilhamento       |
 | DELETE        | `/postos/:id`          | Remove posto de compartilhamento          |
 
@@ -155,8 +164,7 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 
 | Método HTTP  | Endpoint              | Descrição                                  |
 | ------------ | --------------------- | ------------------------------------------ |
-| GET          | `/doacao`         | Retorna todos os colaboradores que doam livros.               |
-| POST         | `/doacao/nova-doacao`   | Cadastra colaboradores para doação de livros.                    |
+| GET          | `/doacao`         | Retorna todos os colaboradores que doam livros.               |                 |
 | PUT          | `/doacao/:id`     | Altera cadastro do colaborador doador de livros.        |
 | DELETE        | `/doacao/:id`     | Remove colaborador da lista de doadores de livros.           |
 
@@ -188,6 +196,8 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 
 - id: autogerado e obrigatório
 - nome: texto e obrigatório 
+- email: texto e obrigatório
+- password: texto e obrigatório
 - telefone: texto e obrigatório
 - cnpj: texto e obrigatório 
 - endereco: texto e obrigatório  
@@ -229,6 +239,7 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 - id: autogerado e obrigatório
 - nome: texto e obrigatório 
 - email: texto e obrigatório
+- password: texto e obrigatório
 - telefone: texto e obrigatório
 - cnpj: texto e obrigatório  
 - termoDeCompromisso: boolean e obrigatório 

@@ -11,7 +11,6 @@ router.get('/cidade', hospedagemController.getByCity)
 router.get('/estado', hospedagemController.getByState)
 
 //Private Routes
-router.post('/novo-posto', checkToken,  hospedagemController.create)
 router.put('/:id', checkToken, hospedagemController.update)
 router.delete('/:id', checkToken,  hospedagemController.remove)
 

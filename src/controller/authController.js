@@ -43,6 +43,6 @@ const autentica = async (req,res) => {
 }
 
 
-module.exports = { 
+module.exports = {
     autentica
  }

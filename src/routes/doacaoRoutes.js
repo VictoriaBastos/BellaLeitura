@@ -10,7 +10,6 @@ const router = express.Router()
 router.get('/', doacaoController.getAll)
 
 //Private Routes
-router.post('/nova-doacao', checkToken,  doacaoController.create)
 router.put('/:id', checkToken, doacaoController.update)
 router.delete('/:id', checkToken,  doacaoController.remove)
 

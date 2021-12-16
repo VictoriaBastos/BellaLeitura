@@ -18,7 +18,7 @@ app.use(express.json());
 app.use('/doacao', doacaoRouter);
 app.use('/postos', hospedagemRouter);
 app.use('/livros', livrosRouter);
-app.use('/user', authRouter);
+app.use('/login', authRouter);
 app.use('/', index);
 
 module.exports = app;
