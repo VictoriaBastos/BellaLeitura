@@ -8,7 +8,8 @@ const hospedagemSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     password:{
         type: String,
@@ -48,4 +49,4 @@ const hospedagemSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('hospedagens', hospedagemSchema)
+module.exports = mongoose.model('hospedeiros', hospedagemSchema)

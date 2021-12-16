@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const getAll = async (req,res) => {
     try {
-        const hospedagem = await HospedagemSchema.find();
+        const hospedagem = await HospedagemSchema.find().select("-password -cnpj");
         res.status(200).send(hospedagem);
     } catch (error) {
         res.status(500).send(error.message);
@@ -12,9 +12,32 @@ const getAll = async (req,res) => {
 
 const create = async (req,res) => {
     try {
-        const body = req.body
-        const novaHospedagem = await HospedagemSchema.create(body)
-        res.status(200).json({"message": "Posto de compartilhamento cadastrado com sucesso", novaHospedagem})
+        const {email,password} = req.body;
+
+        const userExistente = await HospedagemSchema.findOne({ email: email})
+        if(userExistente){
+            return res.status(422).json({"ERRO:" : "Email já cadastrado"})
+        }
+    
+        const salt = await bcrypt.genSalt(12);
+        const passwordHash = await bcrypt.hash(password, salt);
+
+        const novoHospedeiro = new HospedagemSchema({
+            nome:req.body.nome,
+            email:req.body.email,
+            password: passwordHash,
+            telefone:req.body.telefone,
+            cnpj:req.body.cnpj,
+            endereco:req.body.endereco,
+            bairro:req.body.bairro,
+            cidade:req.body.cidade,
+            estado:req.body.estado,
+            termoDeCompromisso:req.body.termoDeCompromisso
+        })
+
+        const hospedeiro = await novoHospedeiro.save();
+        res.status(200).json({"message": "Doador cadastrado com sucesso", novoHospedeiro})
+
     } catch (error) {
         res.status(500).send(error.message);
     }

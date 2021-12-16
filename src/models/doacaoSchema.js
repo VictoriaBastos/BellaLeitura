@@ -8,7 +8,8 @@ const doacaoSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     password:{
         type: String,
@@ -32,4 +33,4 @@ const doacaoSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('parceirosDoacao', doacaoSchema)
+module.exports = mongoose.model('doadores', doacaoSchema)
