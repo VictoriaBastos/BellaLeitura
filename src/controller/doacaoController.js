@@ -12,15 +12,9 @@ const getAll = async (req,res) => {
 
 const create = async (req,res) => {
     try {
-        const novaDoacao = new DoacaoSchema({
-            nome:req.body.nome,
-            email:req.body.email,
-            telefone:req.body.telefone,
-            cnpj:req.body.cnpj,
-            termoDeCompromisso:req.body.termoDeCompromisso
-        })
-        const doacao = await novaDoacao.save();
-        res.status(200).json({"message": "Doador cadastrado com sucesso", doacao})
+        const body = req.body
+        const novoDoador = await DoacaoSchema.create(body);
+        res.status(200).json({"message": "Doador cadastrado com sucesso", novoDoador})
     } catch (error) {
         res.status(500).send(error.message);
     }

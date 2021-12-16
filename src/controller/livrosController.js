@@ -12,21 +12,9 @@ const getAll = async (req,res) => {
 
 const create = async (req,res) => {
     try {
-        const novoLivro = new LivroSchema({
-            titulo:req.body.titulo,
-            texto:req.body.texto,
-            ilustracao:req.body.ilustracao,
-            tradutores:req.body.tradutores,
-            editora:req.body.editora,
-            idades:req.body.idades,
-            ano:req.body.ano,
-            pais:req.body.pais,
-            paginas:req.body.paginas,
-            idDoador:req.body.idDoador
-        })
-
-        const livro = await novoLivro.save();
-        res.status(200).json({"message": "Livro cadastrado com sucesso", livro})
+        const body = req.body;
+        const novoLivro = await LivroSchema.create(body)
+        res.status(200).json({"message": "Livro cadastrado com sucesso", novoLivro})
     } catch (error) {
         res.status(500).send(error.message);
     }
