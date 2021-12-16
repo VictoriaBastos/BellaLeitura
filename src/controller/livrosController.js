@@ -37,8 +37,10 @@ const update = async (req, res) => {
             livro.paginas = req.body.paginas || livro.paginas  
         await livro.save()
         res.status(200).send(livro)
+        }else{
+            res.status(400).json({message:"Não foi possível localizar esse livro"})
         }
-        res.status(400).json({message:"Não foi possível localizar esse livro"})
+        
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -49,7 +51,7 @@ try {
     let livro = await LivroSchema.findById(req.params.id)
     livro.delete()
 
-    res.status(200).json({"message":"Livro removido: ", livro})
+    res.status(200).json({"message":"Livro removido:", livro})
 } catch (error) {
     res.status(500).send(error.message)
 }

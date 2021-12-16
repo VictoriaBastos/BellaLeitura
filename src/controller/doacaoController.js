@@ -37,8 +37,9 @@ const update = async (req, res) => {
             doacao.termoDeCompromisso = req.body.termoDeCompromisso || doacao.termoDeCompromisso  
         await doacao.save()
         res.status(200).send(doacao)
+        }else{
+            res.status(400).json({message:"Não foi possível localizar esse colaborador"})
         }
-        res.status(400).json({message:"Não foi possível localizar esse colaborador"})
     } catch (error) {
         res.status(500).send(error.message)
     }

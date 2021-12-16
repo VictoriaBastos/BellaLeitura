@@ -13,7 +13,7 @@ const getAll = async (req,res) => {
 const create = async (req,res) => {
     try {
         const novaHospedagem = new HospedagemSchema({
-            estabelecimento:req.body.estabelecimento,
+            postoDeHospedagem:req.body.postoDeHospedagem,
             email:req.body.email,
             telefone:req.body.telefone,
             cnpj:req.body.cnpj,
@@ -36,7 +36,7 @@ const update = async (req, res) => {
             let hospedagem = await HospedagemSchema.findById(req.params.id)
         
             if(hospedagem){
-                hospedagem.estabelecimento = req.body.estabelecimento || hospedagem.estabelecimento
+                hospedagem.postoDeHospedagem = req.body.postoDeHospedagem || hospedagem.postoDeHospedagem
                 hospedagem.email = req.body.email || hospedagem.email
                 hospedagem.telefone = req.body.telefone || hospedagem.telefone
                 hospedagem.cnpj = req.body.cnpj || hospedagem.cnpj
@@ -48,10 +48,11 @@ const update = async (req, res) => {
             
             await hospedagem.save()
             res.status(200).send(hospedagem)
+            }else{
+                res.status(400).json({message:"Não foi possível localizar essa hospedagem."})
             }
-
-            res.status(400).json({message:"Não foi possível localizar essa hospedagem."})
-        } catch (error) {
+            
+        } catch(error) {
             res.status(500).send(error.message)
         }
     }
@@ -61,7 +62,7 @@ const remove = async (req, res) => {
         let hospedagem = await HospedagemSchema.findById(req.params.id)
         hospedagem.delete()
 
-        res.status(200).send(hospedagem)
+        res.status(200).json({"message":"Posto de hospedagem removido: ", hospedagem})
     } catch (error) {
         res.status(500).send(error.message)
     }

@@ -6,9 +6,9 @@ const router = express.Router()
 
 //Public Routes
 router.get('/', hospedagemController.getAll)
-router.get('/', hospedagemController.getByNeighborhood)
-router.get('/', hospedagemController.getByCity)
-router.get('/', hospedagemController.getByState)
+router.get('/bairro', hospedagemController.getByNeighborhood)
+router.get('/cidade', hospedagemController.getByCity)
+router.get('/estado', hospedagemController.getByState)
 
 
 //Private Routes
@@ -22,3 +22,5 @@ router.put('/:id', checkToken, hospedagemController.update)
 router.delete('/:id', checkToken,  hospedagemController.remove)
 
 module.exports = router;
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYmE4ZjA1Zjk2NDdhMjdkM2ZjMGU0NCIsImlhdCI6MTYzOTYxNjI4Nn0.4oRre22XPhCNtMlmHiW7jcBddjhmCB-95GRLhoB2PPY
