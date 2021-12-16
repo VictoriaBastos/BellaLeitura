@@ -1,9 +1,9 @@
-<h1 align="center">
+<h2 align="center">
     <br>
-    <p align="center">Projeto Final {Reprograma}<p>
+    <p align="center">Projeto Final {reprograma}<p>
     <p align="center">Bella Leitura<p>
     <p align="center">Compartilhamento de Livros Infantis<p>
-</h1>
+</h2>
 <p align="center">
 <img src="" width="80%" height="50%"/>
 </p>
