@@ -6,7 +6,6 @@ const router = express.Router()
 
 //Public Routes
 router.get('/', livrosController.getAll)
-router.get('/autor', livrosController.getByAuthor)
 router.get('/titulo', livrosController.getByTitle)
 
 //Private Routes

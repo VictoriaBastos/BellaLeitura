@@ -56,14 +56,6 @@ try {
 }
 }
 
-const getByAuthor = async (req, res) => {
-    try {
-        const livro = await LivroSchema.find({texto: req.query.texto})
-        res.status(200).send(livro)
-    } catch (error) {
-        res.status(500).send(error.message)
-    } 
-}
 
 const getByTitle = async (req, res) => {
     try {
@@ -78,6 +70,5 @@ module.exports = {
     create,
     update,
     remove,
-    getByAuthor,
     getByTitle
 }

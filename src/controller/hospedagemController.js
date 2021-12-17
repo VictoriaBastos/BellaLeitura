@@ -1,5 +1,6 @@
 const HospedagemSchema = require('../models/hospedagemSchema')
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt');
 
 const getAll = async (req,res) => {
     try {
@@ -36,6 +37,7 @@ const create = async (req,res) => {
         })
 
         const hospedeiro = await novoHospedeiro.save();
+        novoHospedeiro.password = undefined;
         res.status(200).json({"message": "Doador cadastrado com sucesso", novoHospedeiro})
 
     } catch (error) {

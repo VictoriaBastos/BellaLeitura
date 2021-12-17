@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const getAll = async (req,res) => {
     try {
-        const doacao = await DoacaoSchema.find().select("-password");
+        const doacao = await DoacaoSchema.find().select("-password -cnpj");
         res.status(200).send(doacao);
     } catch (error) {
         res.status(500).send(error.message);
