@@ -181,7 +181,7 @@ Tecnologias utilizadas para desenvolvimento do projeto:
 
 <br>
 
-## 🔃 Rotas de Livros Doados/Sugeridos:
+## 🔃 Rotas de Busca de Livros Doados/Sugeridos:
 
 | Método HTTP  | Endpoint               | Descrição                                         |
 | ------------ | ---------------------- | ------------------------------------------------- |
